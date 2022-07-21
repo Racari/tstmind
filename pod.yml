@@ -1,0 +1,11 @@
+#описание пода
+apiVersion: v1
+kind: Pod                                            
+metadata:
+  name: app-test                                     
+spec:                                                
+  containers:
+    - image: rinormaloku/sentiment-analysis-frontend 
+      name: app-test                                 
+      ports:
+        - containerPort: 80
