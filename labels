@@ -1,0 +1,14 @@
+#дадим метки для подов
+kubectl apply -f app-test.yml
+
+kubectl apply -f app-test2.yml 
+
+kubectl apply -f app-test3.yml 
+
+kubectl apply -f app-test4.yml 
+
+kubectl apply -f app-test5.yml 
+
+#список подов по метке можно получить с помощью
+
+kubectl get pod -l app=app-test
