@@ -1,0 +1,30 @@
+apiVersion: extensions/v1beta1
+kind: Deployment                                          
+metadata:
+  name: app-test
+spec:
+  replicas: 1                                             
+  minReadySeconds: 15
+  strategy:
+    type: RollingUpdate                                   # Стратегия RollingUpdate обеспечивает нулевое время простоя системы при обновлении
+    rollingUpdate: 
+      maxUnavailable: 1                                   # MaxUnavailable: это свойство объекта RollingUpdate, которое задаёт максимальное число недоступных подов
+      maxSurge: 1                                         # MaxSurge: это свойство объекта RollingUpdate, которое описывает максимальное число подов, которое можно добавить в развёртывание
+  template:                                               # 6
+    metadata:
+      labels:
+        app: app-test                                  
+    spec:
+      containers:
+        - image: rinormaloku/sentiment-analysis-frontend
+          imagePullPolicy: Always                         
+          name: sa-frontend
+          ports:
+            - containerPort: 80
+            
+            
+#выполнить деплой
+kubectl apply -f app-test.yml
+
+#проверить поды
+kubectl get pods
