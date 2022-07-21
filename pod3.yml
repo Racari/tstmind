@@ -5,6 +5,6 @@ metadata:
 spec:                                                
   containers:
     - image: rinormaloku/sentiment-analysis-frontend 
-      name: app-test3                            
+      name: app-test                           
       ports:
         - containerPort: 80
